@@ -175,19 +175,15 @@
       //console.log(this.rows());
       //console.log(this.hasMajorDiagonalConflictAt(0));
       var length = this.rows().length;
-      console.log(length);
-      var from = -1 * (length - 1);
-      console.log("from " + from);
-      var arrayLength = length - from;
-      var result;
-      for(var i = from; i < length - from + 1; i++) {
-        result = this.hasMajorDiagonalConflictAt(i);
-        console.log(result);
-        if(result === false) {
-          return false;
+      var from = -(length - 1); //-(n-1)
+      var to = length - 1; //n-1
+
+      for(var i = from; i <= to; i++) {
+        if(this.hasMajorDiagonalConflictAt(i)) {
+          return true;
         }
       }
-      return true;
+      return false;
     },
 
 
@@ -201,12 +197,15 @@
     // [0,0,0]
     hasMinorDiagonalConflictAt: function(minorDiagonalColumnIndexAtFirstRow) {
       var overallArray = this.rows();
-      var result;
+      var result = 0;
+
       for(var i=0; i < overallArray.length; i++){
-        var array = overallArray[i];
-        result += array[minorDiagonalColumnIndexAtFirstRow];
+        if(overallArray[i][minorDiagonalColumnIndexAtFirstRow]) {
+          result += overallArray[i][minorDiagonalColumnIndexAtFirstRow];
+        }
         minorDiagonalColumnIndexAtFirstRow--;
       }
+
       if (result >= 2) {
         return true;
       }
@@ -215,13 +214,16 @@
 
     // test if any minor diagonals on this board contain conflicts
     hasAnyMinorDiagonalConflicts: function() {
-      var overallArray = this.rows();
-      var result;
+      var length = this.rows().length;
+      var from = (length - 1); //n - 1
+      var to = -(length - 1); //-(n - 1)
 
-      result = this.hasMinorDiagonalConflictAt(overallArray[0].length - 1);
-      if (result){
-        return true;
+      for(var i = from; i >= to; i--) {
+        if(this.hasMinorDiagonalConflictAt(i)) {
+          return true;
+        }
       }
+
       return false; // fixme
     }
 
