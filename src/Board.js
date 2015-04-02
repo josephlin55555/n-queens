@@ -82,10 +82,11 @@
       // [[0,0,0]
       // [0,0,0]]
       //
-
+      var overallArray = this.rows();
       var reduce_result = 0;
-      for(var i = 0; i < rowIndex.length; i++) {
-        reduce_result += rowIndex[i];
+      for(var i = 0; i < overallArray[rowIndex].length; i++) {
+        var element = overallArray[rowIndex][i];
+        reduce_result += element;
       }
 
       if(reduce_result >= 2) {
@@ -100,7 +101,7 @@
       var overallArray = this.rows();
       var result;
       for(var i = 0; i < overallArray.length; i++) {
-      result = this.hasRowConflictAt(overallArray[i]);
+      result = this.hasRowConflictAt(i);
       if(result) {
         return true;
         }

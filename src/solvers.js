@@ -20,23 +20,6 @@
 window.findNRooksSolution = function(n) {
   var solution = undefined; //fixme
 
-  // var result =
-  // for (var i = 0; i < n; i++){
-  //   var row = this.rows(i);
-  //   for(var k = 0; k < n; k++) {
-  //     var index_of_comparison = k;
-
-  //     this.hasAnyRowConflicts(index_of_comparison);
-  //     this.hasAnyColConflicts(index_of_comparison);
-  //   }
-  // }
-  // n by n size;
-  //
-  // var result;
-  // for(var i = 0; i < n; i++) {
-  //   this.hasAnyRowConflictsAt(i);
-  //   this.hasAnyColConflictsAt(i);
-  // }
   console.log('Single solution for ' + n + ' rooks:', JSON.stringify(solution));
   return solution;
 };
