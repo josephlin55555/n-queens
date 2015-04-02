@@ -83,10 +83,9 @@
       // [0,0,0]]
       //
 
-      var storage = this.rows(rowIndex); //[0,0,0]
-      var reduce_result;
-      for(var i = 0; i < storage.length; i++) {
-        reduce_result += storage[i];
+      var reduce_result = 0;
+      for(var i = 0; i < rowIndex.length; i++) {
+        reduce_result += rowIndex[i];
       }
 
       if(reduce_result >= 2) {
@@ -101,12 +100,12 @@
       var overallArray = this.rows();
       var result;
       for(var i = 0; i < overallArray.length; i++) {
-        result = this.hasRowConflictAt(overallArray[i]);
-        if(result) {
-          return true;
+      result = this.hasRowConflictAt(overallArray[i]);
+      if(result) {
+        return true;
         }
       }
-       return false; // fixme
+        return false; // fixme
     },
 
 
@@ -116,6 +115,7 @@
     //
     // test if a specific column on this board contains a conflict
     hasColConflictAt: function(colIndex) {
+      console.log(colIndex);
       var overallArray = this.rows();
       var result;
       for(var i = 0; i < overallArray.length; i++) {
