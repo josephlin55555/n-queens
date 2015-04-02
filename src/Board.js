@@ -115,12 +115,15 @@
     //
     // test if a specific column on this board contains a conflict
     hasColConflictAt: function(colIndex) {
-      console.log(colIndex);
+      console.log(this.hasAnyRowConflicts());
       var overallArray = this.rows();
-      var result;
+      var result = 0;
+
       for(var i = 0; i < overallArray.length; i++) {
-        var array = overallArray[i];
-        result += array[colIndex];
+        //for (var k = 0; k <= i; k++) {
+          var array = overallArray[i][colIndex];
+          result += array;
+        //}
       }
 
       if(result >= 2) {
