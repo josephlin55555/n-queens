@@ -32,11 +32,11 @@ window.findNRooksSolution = function(n) {
   // }
   // n by n size;
   //
-  var result;
-  for(var i = 0; i < n; i++) {
-    this.hasAnyRowConflictsAt(i);
-    this.hasAnyColConflictsAt(i);
-  }
+  // var result;
+  // for(var i = 0; i < n; i++) {
+  //   this.hasAnyRowConflictsAt(i);
+  //   this.hasAnyColConflictsAt(i);
+  // }
   console.log('Single solution for ' + n + ' rooks:', JSON.stringify(solution));
   return solution;
 };
