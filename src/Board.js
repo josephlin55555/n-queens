@@ -176,7 +176,7 @@
       //console.log(this.rows());
       //console.log(this.hasMajorDiagonalConflictAt(0));
       var length = this.rows().length;
-      var from = -(length - 1); //-(n-1)
+      var from = 1 - length; //-(n-1)
       var to = length - 1; //n-1
 
       for(var i = from; i <= to; i++) {
@@ -216,8 +216,8 @@
     // test if any minor diagonals on this board contain conflicts
     hasAnyMinorDiagonalConflicts: function() {
       var length = this.rows().length;
-      var from = (length - 1); //n - 1
-      var to = -(length - 1); //-(n - 1)
+      var from = length - 1; //n - 1
+      var to = 1 - length; //-(n - 1)
 
       for(var i = from; i >= to; i--) {
         if(this.hasMinorDiagonalConflictAt(i)) {
